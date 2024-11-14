@@ -19,6 +19,7 @@ namespace prjAdoDotNetDemo.Views
         private void FrmMain_Load(object sender, EventArgs e)
         {
             FrmLogin f = new FrmLogin();
+            f.DsaveUser += this.saveUser;
             f.TopMost = true;
             f.ShowDialog();
         }
@@ -108,6 +109,10 @@ namespace prjAdoDotNetDemo.Views
             FrmRoomList f = new FrmRoomList();
             f.MdiParent = this;
             f.Show();
+        }
+        private void saveUser(int p)
+        {
+            lblUserId.Text = p.ToString();
         }
     }
 }

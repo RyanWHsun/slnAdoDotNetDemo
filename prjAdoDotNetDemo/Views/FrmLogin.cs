@@ -1,4 +1,5 @@
-﻿using System;
+﻿using prjAdoDotNetDemo.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,8 +12,11 @@ using System.Windows.Forms;
 
 namespace prjAdoDotNetDemo.Views
 {
+    public delegate void D(int p);
     public partial class FrmLogin : Form
     {
+        
+        public event D DsaveUser;
         private bool isClosed = true;
         public FrmLogin()
         {
@@ -37,6 +41,8 @@ namespace prjAdoDotNetDemo.Views
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
+                CUserSession.fUserId = Convert.ToInt32(reader["fId"]);
+                DsaveUser(CUserSession.fUserId);
                 isClosed = false;
                 Close();
             }

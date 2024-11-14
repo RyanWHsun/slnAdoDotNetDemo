@@ -56,6 +56,7 @@
     <Compile Include="Models\CCustomerManager.cs" />
     <Compile Include="Models\CDetail.cs" />
     <Compile Include="Models\CRoom.cs" />
+    <Compile Include="Models\CUserSession.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\FieldBox.cs">

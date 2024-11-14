@@ -138,7 +138,7 @@ namespace prjAdoDotNetDemo.Views
             sql += "fCustomerId";
             sql += ")VALUES(";
             sql += "'" + DateTime.Now.ToString("yyyyMMddHHmmss") + "',";
-            sql += "1)";
+            sql += "@K_UserId)";
 
             SqlConnection con = new SqlConnection();
             con.ConnectionString = @"Data Source=.;Initial Catalog=dbDemoTest;Integrated Security=True";
@@ -150,6 +150,7 @@ namespace prjAdoDotNetDemo.Views
             try
             {
                 cmd.CommandText = sql;
+                cmd.Parameters.Add(new SqlParameter("K_UserId", (object)CUserSession.fUserId));
                 cmd.ExecuteNonQuery();
                 sql = "SELECT MAX(fId) AS OrderId FROM tOrder";
                 cmd.CommandText = sql;
