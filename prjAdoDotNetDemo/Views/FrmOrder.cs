@@ -16,6 +16,7 @@ namespace prjAdoDotNetDemo.Views
     public partial class FrmOrder : Form
     {
         private CRoom _selected;
+        private Button _selectedBtn; 
         private List<CDetail> _list = new List<CDetail>();
         int _position = -1;
         public FrmOrder()
@@ -23,26 +24,7 @@ namespace prjAdoDotNetDemo.Views
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < 100; i++)
-            {
-                Button x = new Button();
-                x.Text = "OK";
-                x.Width = 80;
-                x.Height = 50;
-                x.BackColor = Color.Black;
-                x.ForeColor = Color.White;
-                x.Click += this.btnOK_click;
-                flowLayoutPanel1.Controls.Add(x);
-            }
-
-        }
-
-        private void btnOK_click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Hello");
-        }
+       
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -79,6 +61,10 @@ namespace prjAdoDotNetDemo.Views
         private void orderRoom(CRoom p)
         {
             _selected = p;
+        }
+        private void saveBtn(Button button)
+        {
+            _selectedBtn = button;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -210,6 +196,48 @@ namespace prjAdoDotNetDemo.Views
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = _list;
             resetGridStyle();
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                Button x = new Button();
+                x.Text = "OK";
+                x.Width = 80;
+                x.Height = 50;
+                x.BackColor = Color.Black;
+                x.ForeColor = Color.White;
+                x.Click += this.btnOK_click;
+                x.MouseDown += this.btnOK_MouseDown;
+                flowLayoutPanel1.Controls.Add(x);
+            }
+
+        }
+
+        private void btnOK_click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hello");
+        }
+        private void btnOK_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                _selectedBtn = sender as Button;
+                contextMenuStrip1.Show(Cursor.Position);
+            }
+        }
+        private void 修改ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("修改");
+        }
+
+        private void 刪除ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_selectedBtn != null)
+            {
+                flowLayoutPanel1.Controls.Remove(_selectedBtn);
+                _selectedBtn.Dispose();
+            }
         }
     }
 }

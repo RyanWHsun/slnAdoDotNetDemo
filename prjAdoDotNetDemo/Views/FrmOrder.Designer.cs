@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOrder));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.fieldBox1 = new prjAdoDotNetDemo.Views.FieldBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button5 = new System.Windows.Forms.Button();
@@ -42,13 +44,16 @@
             this.button3 = new System.Windows.Forms.Button();
             this.fbCount = new prjAdoDotNetDemo.Views.FieldBox();
             this.fbDate = new prjAdoDotNetDemo.Views.FieldBox();
-            this.fieldBox1 = new prjAdoDotNetDemo.Views.FieldBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.刪除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -95,6 +100,17 @@
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // fieldBox1
+            // 
+            this.fieldBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.fieldBox1.filedName = "關鍵字查詢";
+            this.fieldBox1.filedValue = "";
+            this.fieldBox1.Location = new System.Drawing.Point(0, 0);
+            this.fieldBox1.Name = "fieldBox1";
+            this.fieldBox1.passwordMask = '\0';
+            this.fieldBox1.Size = new System.Drawing.Size(191, 56);
+            this.fieldBox1.TabIndex = 0;
             // 
             // splitContainer1
             // 
@@ -194,6 +210,7 @@
             this.fbCount.filedValue = "1";
             this.fbCount.Location = new System.Drawing.Point(0, 46);
             this.fbCount.Name = "fbCount";
+            this.fbCount.passwordMask = '\0';
             this.fbCount.Size = new System.Drawing.Size(194, 46);
             this.fbCount.TabIndex = 1;
             // 
@@ -204,18 +221,31 @@
             this.fbDate.filedValue = "";
             this.fbDate.Location = new System.Drawing.Point(0, 0);
             this.fbDate.Name = "fbDate";
+            this.fbDate.passwordMask = '\0';
             this.fbDate.Size = new System.Drawing.Size(194, 46);
             this.fbDate.TabIndex = 0;
             // 
-            // fieldBox1
+            // contextMenuStrip1
             // 
-            this.fieldBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.fieldBox1.filedName = "關鍵字查詢";
-            this.fieldBox1.filedValue = "";
-            this.fieldBox1.Location = new System.Drawing.Point(0, 0);
-            this.fieldBox1.Name = "fieldBox1";
-            this.fieldBox1.Size = new System.Drawing.Size(191, 56);
-            this.fieldBox1.TabIndex = 0;
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.修改ToolStripMenuItem,
+            this.刪除ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            // 
+            // 修改ToolStripMenuItem
+            // 
+            this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
+            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.修改ToolStripMenuItem.Text = "修改";
+            this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
+            // 
+            // 刪除ToolStripMenuItem
+            // 
+            this.刪除ToolStripMenuItem.Name = "刪除ToolStripMenuItem";
+            this.刪除ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.刪除ToolStripMenuItem.Text = "刪除";
+            this.刪除ToolStripMenuItem.Click += new System.EventHandler(this.刪除ToolStripMenuItem_Click);
             // 
             // FrmOrder
             // 
@@ -235,6 +265,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -255,5 +286,8 @@
         private System.Windows.Forms.Label lblPayment;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 修改ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 刪除ToolStripMenuItem;
     }
 }
